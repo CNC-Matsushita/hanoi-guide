@@ -52,7 +52,7 @@
   <p class="sub">Phở Thìn 発 · 徒歩約3.8km / 移動のみ約50分</p>
   <ol id="list"></ol>
   <div style="margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(33,29,24,.12);display:flex;gap:8px;align-items:baseline;font-size:11.5px;line-height:1.5"><span class="num tc" style="display:inline-flex;flex:none;transform:translateY(3px)">TC</span><span>TiredCity（7店舗）<br><span style="color:#8a7f72;font-size:10.5px">ルート外のおすすめ。大聖堂〜Hàng Trống 周辺に4店・旧市街側に3店。</span></span></div>
-<p class="foot">© OpenStreetMap contributors © CARTO<br>位置はおおよその目安です。ピンをタップすると Google Maps を開けます。</p>
+<p class="foot">© OpenStreetMap contributors<br>位置はおおよその目安です。ピンをタップすると Google Maps を開けます。</p>
   </div>
 </div>
 <script>
@@ -84,9 +84,17 @@ const EXTRA = [
   {name:'TiredCity 159 Hàng Bạc', jp:'雑貨・アパレル', lat:21.0339794, lng:105.851066, url:'https://www.google.co.jp/maps/place/TiredCity+159+H%C3%A0ng+B%E1%BA%A1c/@21.0339794,105.851066,18z'}
 ];
 const map = L.map('map', {scrollWheelZoom:true});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  subdomains:'abcd', attribution:'© OpenStreetMap contributors © CARTO', maxZoom:20
+const base = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:'© OpenStreetMap contributors', maxZoom:19
 }).addTo(map);
+let fellBack = false;
+base.on('tileerror', ()=>{
+  if(fellBack) return; fellBack = true;
+  map.removeLayer(base);
+  L.tileLayer('https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution:'© OpenStreetMap contributors © CARTO', maxZoom:19
+  }).addTo(map);
+});
 
 const path = [[START.lat,START.lng], ...STOPS.map(s=>[s.lat,s.lng])];
 L.polyline(path, {color:'#a8422a', weight:3, opacity:.85, dashArray:'7 7'}).addTo(map);
