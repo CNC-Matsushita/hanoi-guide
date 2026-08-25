@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Shippori+Mincho+B1:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1e1b16"/><circle cx="100" cy="100" r="42" fill="none" stroke="#d9a08c" stroke-width="6"/><text x="100" y="114" text-anchor="middle" font-family="Georgia,serif" font-size="42" fill="#f2ede3">HN</text></svg></template>
+<style>
+body{margin:0;background:#f2ede3;-webkit-font-smoothing:antialiased}
+a{color:#a8422a;text-decoration:none}
+a:hover{color:#7d2f1c}
+</style>
+</helmet>
+<div style="min-height:100%;background:#f2ede3;color:#211d18;font-family:'Zen Kaku Gothic New','Hiragino Sans',system-ui,sans-serif">
+
+  <header style="background:#1e1b16;color:#f2ede3;padding:72px 32px 60px">
+    <div style="max-width:1080px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid rgba(242,237,227,.25);padding-bottom:16px">
+        <span style="font:500 11px/1 'Zen Kaku Gothic New',sans-serif;letter-spacing:.32em;color:#d9a08c">HANOI CITY GUIDE</span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(242,237,227,.6)">Vol. 01 — Hoan Kiem</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:36px">
+        <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8vw,92px);line-height:.95;letter-spacing:-.01em">Hà Nội<span style="font-style:italic;color:#d9a08c">,</span><br><span style="font-style:italic;font-size:.62em;color:#d9a08c">a walking day</span></h1>
+        <div style="max-width:330px;padding-bottom:6px">
+          <p style="margin:0;font-family:'Shippori Mincho B1',serif;font-size:14px;line-height:2.1;color:rgba(242,237,227,.85);text-wrap:pretty">Phở Thìn を出発点とした、私と添田さんのおすすめスポットまとめです！</p>
+          <div style="display:flex;gap:24px;margin-top:18px;font-size:11px;letter-spacing:.12em;color:rgba(242,237,227,.55)">
+            <span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#f2ede3;letter-spacing:0;margin-right:6px">8</span>SPOTS</span>
+            <span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#f2ede3;letter-spacing:0;margin-right:6px">3.8</span>KM</span>
+            <span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#f2ede3;letter-spacing:0;margin-right:6px">1</span>DAY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 32px">
+
+    <section style="padding:56px 0 12px">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:8px">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#a8422a">The Route</span>
+        <span style="flex:1;height:1px;background:rgba(33,29,24,.2)"></span>
+        <span style="font:500 10.5px/1 sans-serif;letter-spacing:.26em;color:#8a7f72">GUIDE MAP</span>
+      </div>
+      <p style="margin:0 0 20px;font-size:13px;line-height:1.9;color:#6b6055">起点は老舗フォー「Phở Thìn」。ピンの番号が歩く順番です。タップすると Google Maps が開きます。</p>
+      <div style="position:relative;height:500px;border:1px solid #211d18;overflow:hidden;background:#fffdf9;box-shadow:8px 8px 0 rgba(33,29,24,.08)">
+        <iframe src="./route-map.html" title="ホアンキエム周辺ガイドマップ" style="width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+    </section>
+
+    <section style="padding:48px 0 8px">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:26px">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#a8422a">Shops &amp; Souvenirs</span>
+        <span style="flex:1;height:1px;background:rgba(33,29,24,.2)"></span>
+        <span style="font:500 10.5px/1 sans-serif;letter-spacing:.26em;color:#8a7f72">ショップ・お土産</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px">
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-cerender" shape="rect" src="./images/cerender.jpg" placeholder="Cerender の器・店内写真"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">01</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">HOME GOODS · ★★★★★</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Cerender Ceramics</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">セレンダー・セラミックス</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">ハノイ発の陶器ブランド。日常使いしやすい器やカップが揃い、おみやげ探しに。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>11a P. Tràng Thi · ルート3番目</span>
+              <a href="https://maps.app.goo.gl/8E5P4E6wfT1nEYBB7" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-crafthouse" shape="rect" src="./images/crafthouse.jpg" placeholder="The Craft House の店頭写真"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">02</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">GIFT SHOP · ★★★★★</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">The Craft House Cathedral</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">クラフトハウス 大聖堂店</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">大聖堂すぐ横のギフトショップ。雑貨やイラスト小物など、ばらまき土産も見つかります。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>19 Phố Nhà Chung · ルート5番目</span>
+              <a href="https://maps.app.goo.gl/yeUSS27b74ddMKUDA" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-marou" shape="rect" src="./images/marou.jpg" placeholder="Maison Marou の板チョコ・店内"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">03</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">CHOCOLATE</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Maison Marou Flagship</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">メゾン・マルゥ 旗艦店</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">ベトナム産カカオのチョコレート専門店。板チョコの土産に加え、店内カフェでケーキも。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>91 P. Thợ Nhuộm · ルート2番目</span>
+              <a href="https://maps.app.goo.gl/zXnKmFMjNg2yVwsY9" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-tiredcity" shape="rect" src="./images/tiredcity.jpg" placeholder="TiredCity の店頭・雑貨写真"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#2e5e4e">TC</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">GIFT SHOP · 7 STORES</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">TiredCity</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">タイアードシティ</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">諏佐さんもご存じの、ベトナムの若手アーティストのイラストを載せたTシャツや雑貨のブランド。ホアンキエム周辺に7店舗あり、地図の深緑「TC」ピンが目印です。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>大聖堂周辺ほか · ルート外</span>
+              <a href="https://www.google.co.jp/maps/place/TiredCity+05+Nh%C3%A0+Th%E1%BB%9D/@21.0289289,105.8501071,18z" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section style="padding:48px 0 8px">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:26px">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#a8422a">Cafes &amp; Sweets</span>
+        <span style="flex:1;height:1px;background:rgba(33,29,24,.2)"></span>
+        <span style="font:500 10.5px/1 sans-serif;letter-spacing:.26em;color:#8a7f72">カフェ・スイーツ</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px">
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-cafedinh" shape="rect" src="./images/cafedinh.jpg" placeholder="Cafe Dinh のエッグコーヒー"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">04</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">CAFE · ★★★★★</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Cafe Dinh</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">カフェ・ディン</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">ハノイで最も名高いエッグコーヒーの老舗。細い階段を上った2階は連日世界中の旅行者で賑わう、湖畔の隠れ家です。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>13 Đinh Tiên Hoàng · ルート6番目</span>
+              <a href="https://maps.app.goo.gl/Nx4RgaESppYZecaTA" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-congcafe" shape="rect" src="./images/congcafe.jpg" placeholder="Cong Cafe のココナッツコーヒー"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">05</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">CAFE · ★★★★☆</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Cong Cafe – Cau Go</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">コンカフェ カウゴー店</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">レトロな内装で人気のチェーン。名物はココナッツスムージーコーヒー。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>116 P. Cầu Gỗ · ルート7番目</span>
+              <a href="https://maps.app.goo.gl/REWQC1K1oMEc2e1w7" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-trangtien" shape="rect" src="./images/trangtien.jpg" placeholder="Trang Tien のアイスクリーム"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">06</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">ICE CREAM · ★★★★☆</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Trang Tien Ice Cream</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">チャンティエン・アイスクリーム</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">1958年創業、ベトナムで最も有名な老舗アイス店。今も地元客が絶えない名物「Kem Tràng Tiền」を、立ち食いスタイルで気軽に。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>44 Tràng Tiền · ルート1番目</span>
+              <a href="https://maps.app.goo.gl/rCvQpm2DrXETY9Gj8" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section style="padding:48px 0 8px">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:26px">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#a8422a">Art &amp; Wander</span>
+        <span style="flex:1;height:1px;background:rgba(33,29,24,.2)"></span>
+        <span style="font:500 10.5px/1 sans-serif;letter-spacing:.26em;color:#8a7f72">アート・立ち寄りスポット</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px">
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-moart" shape="rect" src="./images/moart.jpg" placeholder="Mơ Art Space の展示風景"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">07</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">ART GALLERY · ★★★★★</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Mơ Art Space</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">モー・アートスペース</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">古い建物を生かした現代アートギャラリー。静かにひと休みできる空間です。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>136 P. Hàng Trống · ルート4番目</span>
+              <a href="https://maps.app.goo.gl/pixzYftoMhZVvP747" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fffdf9;border:1px solid #211d18;box-shadow:6px 6px 0 rgba(33,29,24,.08);display:flex;flex-direction:column">
+          <div style="position:relative;height:200px"><image-slot id="shop-trainstreet" shape="rect" src="./images/train-street.jpg" placeholder="Train Street の線路とカフェ"></image-slot></div>
+          <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#a8422a">08</span>
+              <span style="font:500 10px/1.5 sans-serif;letter-spacing:.18em;color:#8a7f72">ATTRACTION · ★★★★☆</span>
+            </div>
+            <div>
+              <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.1">Hanoi Train Street</h3>
+              <p style="margin:4px 0 0;font-family:'Shippori Mincho B1',serif;font-size:12px;color:#a8422a">ハノイ・トレインストリート</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.9;color:#4b433a;text-wrap:pretty">線路沿いにカフェが並ぶ名所。列車の通過時刻は日により変わるため、現地の案内に従って。</p>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(33,29,24,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;font-size:11.5px;color:#8a7f72">
+              <span>3 Trần Phú · ルート8番目</span>
+              <a href="https://maps.app.goo.gl/ids6KWjJs21TkezUA" target="_blank" rel="noopener" style="font-weight:500;font-size:12px">Maps →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer style="background:#1e1b16;color:rgba(242,237,227,.6);padding:32px;margin-top:56px">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:baseline;font-size:11.5px;line-height:1.8">
+      <span>営業時間・定休日は変更される場合があります。訪問前に Google Maps でご確認ください。</span>
+      <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:#d9a08c">Hà Nội, a walking day — Vol. 01</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ホアンキエム周辺 ガイドマップ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;height:100%;font-family:'Zen Kaku Gothic New','Hiragino Sans',system-ui,sans-serif;background:#f4efe6}
+  #map{position:absolute;inset:0}
+  .num{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+       background:#a8422a;color:#fff;font:500 13px/1 'Zen Kaku Gothic New',sans-serif;
+       box-shadow:0 1px 4px rgba(0,0,0,.35);border:2px solid #fffdf9}
+  .num.start{background:#211d18;width:32px;height:32px;font-size:12px}
+  .num.tc{background:#2e5e4e;width:26px;height:26px;font-size:10px;letter-spacing:.02em}
+  .legend{position:absolute;top:14px;left:14px;z-index:500;background:rgba(255,253,249,.95);
+       border:1px solid rgba(33,29,24,.14);border-radius:4px;padding:14px 16px;max-width:250px;
+       box-shadow:0 2px 10px rgba(0,0,0,.1);max-height:calc(100% - 28px);overflow:auto}
+  .legend h1{font:400 19px/1.2 'Instrument Serif',serif;margin:0 0 2px}
+  .legend .sub{font-size:11px;color:#8a7f72;margin:0 0 12px}
+  .legend ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+  .legend li{display:flex;gap:8px;align-items:baseline;font-size:12px;line-height:1.4;color:#211d18;cursor:pointer}
+  .legend li:hover{color:#a8422a}
+  .legend li b{font:400 12px/1 'Instrument Serif',serif;color:#a8422a;min-width:14px}
+  .legend .foot{margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(33,29,24,.12);font-size:10.5px;color:#8a7f72;line-height:1.6}
+  .leaflet-popup-content{font-family:'Zen Kaku Gothic New',sans-serif;font-size:12.5px;line-height:1.6;margin:12px 14px}
+  .leaflet-popup-content b{font:400 17px/1.2 'Instrument Serif',serif;display:block;margin-bottom:4px}
+  .leaflet-popup-content a{color:#a8422a;font-weight:500}
+  .leaflet-popup-content .cat{color:#8a7f72;font-size:11px}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="legend">
+  <h1>Hoan Kiem Walking Route</h1>
+  <p class="sub">Phở Thìn 発 · 徒歩約3.8km / 移動のみ約50分</p>
+  <ol id="list"></ol>
+  <div style="margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(33,29,24,.12);display:flex;gap:8px;align-items:baseline;font-size:11.5px;line-height:1.5"><span class="num tc" style="display:inline-flex;flex:none;transform:translateY(3px)">TC</span><span>TiredCity（7店舗）<br><span style="color:#8a7f72;font-size:10.5px">ルート外のおすすめ。大聖堂〜Hàng Trống 周辺に4店・旧市街側に3店。</span></span></div>
+<p class="foot">© OpenStreetMap contributors<br>位置はおおよその目安です。ピンをタップすると Google Maps を開けます。</p>
+</div>
+<script>
+const START = {name:'Phở Thìn', cat:'スタート地点 · 老舗フォー', lat:21.018111, lng:105.855301,
+               url:'https://www.google.co.jp/maps/place/Ph%E1%BB%9F+Th%C3%ACn/@21.018111,105.8541101,19z'};
+const STOPS = [
+  {n:1, name:'Trang Tien Ice Cream', jp:'老舗アイス', lat:21.0251135, lng:105.8546065, url:'https://maps.app.goo.gl/rCvQpm2DrXETY9Gj8'},
+  {n:2, name:'Maison Marou Flagship', jp:'ベトナム産チョコレート', lat:21.0220496, lng:105.8497974, url:'https://maps.app.goo.gl/zXnKmFMjNg2yVwsY9'},
+  {n:3, name:'Cerender Ceramics', jp:'ハノイの陶器ブランド', lat:21.0260762, lng:105.8507718, url:'https://maps.app.goo.gl/8E5P4E6wfT1nEYBB7'},
+  {n:4, name:'Mơ Art Space', jp:'現代アートギャラリー', lat:21.028123, lng:105.8507264, url:'https://maps.app.goo.gl/pixzYftoMhZVvP747'},
+  {n:5, name:'The Craft House Cathedral', jp:'ギフトショップ', lat:21.0281985, lng:105.849857, url:'https://maps.app.goo.gl/yeUSS27b74ddMKUDA'},
+  {n:6, name:'Cafe Dinh', jp:'エッグコーヒーの老舗', lat:21.0320036, lng:105.8521694, url:'https://maps.app.goo.gl/Nx4RgaESppYZecaTA'},
+  {n:7, name:'Cong Cafe – Cau Go', jp:'ココナッツコーヒー', lat:21.0323485, lng:105.851527, url:'https://maps.app.goo.gl/REWQC1K1oMEc2e1w7'},
+  {n:8, name:'Hanoi Train Street', jp:'線路沿いのカフェ街', lat:21.0300662, lng:105.8441282, url:'https://maps.app.goo.gl/ids6KWjJs21TkezUA'}
+];
+
+const EXTRA = [
+  {name:'TiredCity 05 Nhà Thờ', jp:'雑貨・アパレル', lat:21.0289289, lng:105.8501071, url:'https://www.google.co.jp/maps/place/TiredCity+05+Nh%C3%A0+Th%E1%BB%9D/@21.0289289,105.8501071,18z'},
+  {name:'TiredCity 19 Nhà Thờ', jp:'雑貨・アパレル', lat:21.0288165, lng:105.8498194, url:'https://www.google.co.jp/maps/place/TiredCity+19+Nh%C3%A0+Th%E1%BB%9D/@21.0288165,105.8498194,18z'}
+,
+  {name:'TiredCity 57C Đinh Tiên Hoàng', jp:'雑貨・アパレル', lat:21.0315044, lng:105.8533901, url:'https://www.google.co.jp/maps/place/TiredCity+57C+%C4%90inh+Ti%C3%AAn+Ho%C3%A0ng/@21.0315044,105.8533901,18z'}
+,
+  {name:'TiredCity 41C Lý Quốc Sư', jp:'雑貨・アパレル', lat:21.0295367, lng:105.8493555, url:'https://www.google.co.jp/maps/place/TiredCity+41C+L%C3%BD+Qu%E1%BB%91c+S%C6%B0/@21.0295367,105.8493555,18z'}
+,
+  {name:'TiredCity 67 Hàng Trống', jp:'雑貨・アパレル', lat:21.0301395, lng:105.8500495, url:'https://www.google.co.jp/maps/place/TiredCity+67+H%C3%A0ng+Tr%E1%BB%91ng/@21.0301395,105.8500495,18z'}
+,
+  {name:'TiredCity 10B Đinh Liệt', jp:'雑貨・アパレル', lat:21.0333407, lng:105.8519868, url:'https://www.google.co.jp/maps/place/TiredCity+10B+%C4%90inh+Li%E1%BB%87t/@21.0333407,105.8519868,18z'}
+,
+  {name:'TiredCity 159 Hàng Bạc', jp:'雑貨・アパレル', lat:21.0339794, lng:105.851066, url:'https://www.google.co.jp/maps/place/TiredCity+159+H%C3%A0ng+B%E1%BA%A1c/@21.0339794,105.851066,18z'}
+];
+const map = L.map('map', {scrollWheelZoom:true});
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:'© OpenStreetMap contributors', maxZoom:19
+}).addTo(map);
+
+const path = [[START.lat,START.lng], ...STOPS.map(s=>[s.lat,s.lng])];
+L.polyline(path, {color:'#a8422a', weight:3, opacity:.85, dashArray:'7 7'}).addTo(map);
+
+function icon(label, extra){
+  return L.divIcon({className:'', html:'<div class="num '+(extra||'')+'">'+label+'</div>',
+                    iconSize:[28,28], iconAnchor:[14,14], popupAnchor:[0,-14]});
+}
+const markers = {};
+L.marker([START.lat,START.lng], {icon:icon('START','start'), zIndexOffset:1000})
+ .addTo(map)
+ .bindPopup('<b>'+START.name+'</b><span class="cat">'+START.cat+'</span><br><a href="'+START.url+'" target="_blank" rel="noopener">Google Maps で開く →</a>');
+
+STOPS.forEach(s=>{
+  markers[s.n] = L.marker([s.lat,s.lng], {icon:icon(s.n)}).addTo(map)
+    .bindPopup('<b>'+s.name+'</b><span class="cat">'+s.n+'番目 · '+s.jp+'</span><br><a href="'+s.url+'" target="_blank" rel="noopener">Google Maps で開く →</a>');
+});
+
+EXTRA.forEach(s=>{
+  L.marker([s.lat,s.lng], {icon:L.divIcon({className:'', html:'<div class="num tc">TC</div>', iconSize:[26,26], iconAnchor:[13,13], popupAnchor:[0,-13]})}).addTo(map)
+    .bindPopup('<b>'+s.name+'</b><span class="cat">おすすめ · '+s.jp+'</span><br><a href="'+s.url+'" target="_blank" rel="noopener">Google Maps で開く →</a>');
+});
+map.fitBounds(L.latLngBounds(path), {padding:[60,60], paddingTopLeft:[290,60]});
+
+const list = document.getElementById('list');
+list.innerHTML = STOPS.map(s=>'<li data-n="'+s.n+'"><b>'+s.n+'</b><span>'+s.name+'<br><span style="color:#8a7f72;font-size:11px">'+s.jp+'</span></span></li>').join('');
+list.addEventListener('click', e=>{
+  const li = e.target.closest('li'); if(!li) return;
+  const m = markers[li.dataset.n];
+  map.setView(m.getLatLng(), 17, {animate:true}); m.openPopup();
+});
+</script>
+</body>
+</html>
